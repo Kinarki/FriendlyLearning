@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendlyLearning", "FriendlyLearning\FriendlyLearning.csproj", "{4953DDB4-656A-4D73-921F-372A6DEC8A14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendlyLearning.services", "FriendlyLearning.services\FriendlyLearning.services.csproj", "{2EFC38CD-AEB8-414D-AC24-5CD5E01183DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendlyLearning.Models", "FriendlyLearning.Models.cs\FriendlyLearning.Models.csproj", "{47B19F48-D453-4058-A515-2508A5290DBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{4953DDB4-656A-4D73-921F-372A6DEC8A14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4953DDB4-656A-4D73-921F-372A6DEC8A14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4953DDB4-656A-4D73-921F-372A6DEC8A14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EFC38CD-AEB8-414D-AC24-5CD5E01183DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EFC38CD-AEB8-414D-AC24-5CD5E01183DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EFC38CD-AEB8-414D-AC24-5CD5E01183DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EFC38CD-AEB8-414D-AC24-5CD5E01183DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47B19F48-D453-4058-A515-2508A5290DBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47B19F48-D453-4058-A515-2508A5290DBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47B19F48-D453-4058-A515-2508A5290DBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47B19F48-D453-4058-A515-2508A5290DBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
