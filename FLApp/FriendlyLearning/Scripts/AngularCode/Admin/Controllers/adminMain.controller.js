@@ -11,5 +11,9 @@
         vm.$scope = $scope;
         vm.adminMainService = AdminMainService;
         vm.$onInit = _onInit;
+
+        function _onInit() {
+            console.log("admin init inited");
+        }
     }
 })();

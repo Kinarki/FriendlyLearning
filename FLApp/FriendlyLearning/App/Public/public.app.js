@@ -3,5 +3,5 @@
     window.APP = window.APP || {};
     APP.NAME = "learningPublicApp";
     angular
-        .module(APP.NAME, []);
+        .module(APP.NAME, ["ui.router", "ngRoute"]);
 })();

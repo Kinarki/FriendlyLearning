@@ -11,5 +11,9 @@
         vm.$scope = $scope;
         vm.publicMainService = PublicMainService;
         vm.$onInit = _onInit;
+
+        function _onInit() {
+            console.log("public init inited");
+        }
     }
 })();

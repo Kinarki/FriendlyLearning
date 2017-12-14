@@ -3,7 +3,7 @@
     angular
         .module("learningPublicApp")
         .component("publicMain", {
-            templateUrl: "app/public/AngularCode/Templates/publicMainDetails.html",
+            templateUrl: "/App/Public/Templates/publicMainDetails.html",
             controller: "publicMainController",
             bindings: {
                 mainBind: "<"
