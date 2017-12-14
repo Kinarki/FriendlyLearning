@@ -55,6 +55,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.6.7.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.6.7\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
     </Reference>
@@ -204,6 +207,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\LearningController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -277,6 +281,24 @@
     </Content>
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\AngularCode\Admin\Components\adminMain.component.js" />
+    <Content Include="Scripts\AngularCode\Admin\Controllers\adminMain.controller.js" />
+    <Content Include="Scripts\AngularCode\Admin\Services\adminMain.service.js" />
+    <Content Include="Scripts\AngularCode\Public\Components\Colors\colorsMain.component.js" />
+    <Content Include="Scripts\AngularCode\Public\Components\Letters\lettersMain.component.js" />
+    <Content Include="Scripts\AngularCode\Public\Components\Numbers\numbersMain.component.js" />
+    <Content Include="Scripts\AngularCode\Public\Components\Pictures\picturesMain.component.js" />
+    <Content Include="Scripts\AngularCode\Public\Components\publicMain.component.js" />
+    <Content Include="Scripts\AngularCode\Public\Controllers\Colors\colorsMain.controller.js" />
+    <Content Include="Scripts\AngularCode\Public\Controllers\Letters\lettersMain.controller.js" />
+    <Content Include="Scripts\AngularCode\Public\Controllers\Numbers\numbersMain.controller.js" />
+    <Content Include="Scripts\AngularCode\Public\Controllers\Pictures\picturesMain.controller.js" />
+    <Content Include="Scripts\AngularCode\Public\Controllers\publicMain.controller.js" />
+    <Content Include="Scripts\AngularCode\Public\Services\Colors\colorsMain.service.js" />
+    <Content Include="Scripts\AngularCode\Public\Services\Letters\lettersMain.service.js" />
+    <Content Include="Scripts\AngularCode\Public\Services\Numbers\numbersMain.service.js" />
+    <Content Include="Scripts\AngularCode\Public\Services\Pictures\picturesMain.service.js" />
+    <Content Include="Scripts\AngularCode\Public\Services\publicMain.service.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\errors.json" />
@@ -1089,7 +1111,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\Api\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
