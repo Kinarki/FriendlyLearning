@@ -47,5 +47,11 @@
   <ItemGroup>
     <Folder Include="Interfaces\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FriendlyLearning.Models.cs\FriendlyLearning.Models.csproj">
+      <Project>{47b19f48-d453-4058-a515-2508a5290dbe}</Project>
+      <Name>FriendlyLearning.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
