@@ -1,41 +1,115 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using FriendlyLearning.Models.cs.Domain;
+using FriendlyLearning.Models.cs.Responses;
+using FriendlyLearning.Services;
+using FriendlyLearning.Services.Interfaces;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace FriendlyLearning.Controllers.Api
+namespace FriendlyLearning.Web.Controllers.Api
 {
-    [RoutePrefix("api/learning")]
+    [RoutePrefix("api/users")]
+    [AllowAnonymous]
     public class LearningController : ApiController
     {
-        // GET: api/Default
-        public IEnumerable<string> Get()
+        private IUsersService usersService = new UsersService();
+
+        // GET Default
+        [Route, HttpGet]
+        public HttpResponseMessage Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, "NOICE!");
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
-        // GET: api/Default/5
-        [Route("/{msg}"), HttpGet]
-        public string Get(int id)
+        //GET all
+        [Route("all"), HttpGet]
+        public HttpResponseMessage SelectAll()
         {
-            return "value";
+            try
+            {
+                ItemsResponse<Users> resp = new ItemsResponse<Users>();
+                resp.Items = usersService.SelectAll();
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
-        // POST: api/Default
-        public void Post([FromBody]string value)
+        // GET by id
+        [Route("{id:int}"), HttpGet]
+        public HttpResponseMessage SelectById(int id)
         {
+            try
+            {
+                ItemResponse<Users> resp = new ItemResponse<Users>();
+                resp.Item = usersService.SelectById(id);
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
-        // PUT: api/Default/5
-        public void Put(int id, [FromBody]string value)
+        // POST 
+        [Route, HttpPost]
+        public HttpResponseMessage Post(Users model)
         {
+            try
+            {
+                int id = usersService.Insert(model);
+
+                ItemResponse<int> resp = new ItemResponse<int>();
+                resp.Item = id;
+
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
-        // DELETE: api/Default/5
-        public void Delete(int id)
+        // PUT
+        [Route("{id:int}"), HttpPut]
+        public HttpResponseMessage Put(int id, Users model)
         {
+            try
+            {
+                usersService.Update(model);
+                SuccessResponse resp = new SuccessResponse();
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        // DELETE by id
+        [Route("{id:int}"), HttpDelete]
+        public HttpResponseMessage Delete(int id)
+        {
+            try
+            {
+                usersService.Delete(id);
+                SuccessResponse resp = new SuccessResponse();
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
     }
 }
