@@ -15,5 +15,13 @@ namespace Learning.Tests.Services
             List<Users> model = svc.SelectAll();
             Assert.IsNotNull(model);
         }
+
+        [TestMethod]
+        public void UsersService_SelectById_test()
+        {
+            UsersService svc = new UsersService();
+            Users model = svc.SelectById(4);
+            Assert.IsNotNull(model);
+        }
     }
 }

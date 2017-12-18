@@ -9,6 +9,36 @@ namespace FriendlyLearning.Services
 {
     public class UsersService : IUsersService
     {
+        public int Insert(Users model)
+        {
+            int UserId = 0;
+            
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("dbo.Users_Insert", conn))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    SqlParameterCollection paramCol = cmd.Parameters;
+                    SqlParameter param = new SqlParameter();
+                    param.ParameterName = "@UserId";
+                    param.SqlDbType = System.Data.SqlDbType.Int;
+                    param.Direction = System.Data.ParameterDirection.Output;
+                    paramCol.Add(param);
+
+                    paramCol.AddWithValue("@FirstName", model.FirstName);
+                    paramCol.AddWithValue("@LastName", model.LastName);
+                    paramCol.AddWithValue("@Gender", model.Gender);
+                    paramCol.AddWithValue("@Age", model.Age);
+                    paramCol.AddWithValue("@FavoriteColor", model.FavoriteColor);
+                    paramCol.AddWithValue("@AccountId", model.AccountId);
+                    UserId = (int)paramCol["@UserId"].Value;
+                }
+                conn.Close();
+            }
+            return UserId;
+        }
+
         public Users SelectById(int id)
         {
             Users model = null;
@@ -51,19 +81,16 @@ namespace FriendlyLearning.Services
             return userList;
         }
 
-        public int Insert(Users model)
+        public void Update(Users model)
         {
-            int id = 0;
-            
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand("dbo.Users_Insert", conn))
+                using (SqlCommand cmd = new SqlCommand("dbo.Users_Update", conn))
                 {
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     SqlParameterCollection paramCol = cmd.Parameters;
                     SqlParameter param = new SqlParameter();
-                    param.ParameterName = "@Id";
+                    param.ParameterName = "@UserId";
                     param.SqlDbType = System.Data.SqlDbType.Int;
                     param.Direction = System.Data.ParameterDirection.Output;
                     paramCol.Add(param);
@@ -74,11 +101,9 @@ namespace FriendlyLearning.Services
                     paramCol.AddWithValue("@Age", model.Age);
                     paramCol.AddWithValue("@FavoriteColor", model.FavoriteColor);
                     paramCol.AddWithValue("@AccountId", model.AccountId);
-                    id = (int)paramCol["@Id"].Value;
                 }
                 conn.Close();
             }
-            return id;
         }
 
         public void Delete(int id)

@@ -1,5 +1,6 @@
 ﻿using FriendlyLearning.Models.cs.Domain;
 using FriendlyLearning.Models.cs.Responses;
+using FriendlyLearning.Services;
 using FriendlyLearning.Services.Interfaces;
 using System;
 using System.Net;
@@ -8,20 +9,11 @@ using System.Web.Http;
 
 namespace FriendlyLearning.Web.Controllers.Api
 {
-    [RoutePrefix("api/learning/users")][AllowAnonymous]
+    [RoutePrefix("api/users")]
+    [AllowAnonymous]
     public class LearningController : ApiController
     {
-        private IUsersService usersService;
-        public LearningController (IUsersService usersService)
-        {
-            this.usersService = usersService;
-        }
-        // GET: api/learning/{msg}
-        [Route("{msg}"), HttpGet]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        private IUsersService usersService = new UsersService();
 
         // GET Default
         [Route, HttpGet]
@@ -54,7 +46,7 @@ namespace FriendlyLearning.Web.Controllers.Api
         }
 
         // GET by id
-        [Route("{int:id}"), HttpGet]
+        [Route("{id:int}"), HttpGet]
         public HttpResponseMessage SelectById(int id)
         {
             try
@@ -69,8 +61,7 @@ namespace FriendlyLearning.Web.Controllers.Api
             }
         }
 
-
-        // POST: api/Default
+        // POST 
         [Route, HttpPost]
         public HttpResponseMessage Post(Users model)
         {
@@ -89,13 +80,24 @@ namespace FriendlyLearning.Web.Controllers.Api
             }
         }
 
-        // PUT: api/Default/5
-        public void Put(int id, [FromBody]string value)
+        // PUT
+        [Route("{id:int}"), HttpPut]
+        public HttpResponseMessage Put(int id, Users model)
         {
+            try
+            {
+                usersService.Update(model);
+                SuccessResponse resp = new SuccessResponse();
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
-        // DELETE: api/Default/5
-        [Route("{int:id}"), HttpDelete]
+        // DELETE by id
+        [Route("{id:int}"), HttpDelete]
         public HttpResponseMessage Delete(int id)
         {
             try

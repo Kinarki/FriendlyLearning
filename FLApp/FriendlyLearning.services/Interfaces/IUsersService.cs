@@ -9,6 +9,7 @@ namespace FriendlyLearning.Services.Interfaces
         Users SelectById(int id);
         List<Users> SelectAll();
         int Insert(Users model);
+        void Update(Users model);
         void Delete(int id);
     }
 }
