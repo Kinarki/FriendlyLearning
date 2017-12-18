@@ -1,31 +1,92 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using FriendlyLearning.Models.cs.Domain;
+using FriendlyLearning.Models.cs.Responses;
+using FriendlyLearning.Services.Interfaces;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace FriendlyLearning.Controllers.Api
+namespace FriendlyLearning.Web.Controllers.Api
 {
-    [RoutePrefix("api/learning")]
+    [RoutePrefix("api/learning/users")][AllowAnonymous]
     public class LearningController : ApiController
     {
-        // GET: api/Default
-        public IEnumerable<string> Get()
+        private IUsersService usersService;
+        public LearningController (IUsersService usersService)
         {
-            return new string[] { "value1", "value2" };
+            this.usersService = usersService;
         }
-
-        // GET: api/Default/5
-        [Route("/{msg}"), HttpGet]
+        // GET: api/learning/{msg}
+        [Route("{msg}"), HttpGet]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST: api/Default
-        public void Post([FromBody]string value)
+        // GET Default
+        [Route, HttpGet]
+        public HttpResponseMessage Get()
         {
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, "NOICE!");
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        //GET all
+        [Route("all"), HttpGet]
+        public HttpResponseMessage SelectAll()
+        {
+            try
+            {
+                ItemsResponse<Users> resp = new ItemsResponse<Users>();
+                resp.Items = usersService.SelectAll();
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        // GET by id
+        [Route("{int:id}"), HttpGet]
+        public HttpResponseMessage SelectById(int id)
+        {
+            try
+            {
+                ItemResponse<Users> resp = new ItemResponse<Users>();
+                resp.Item = usersService.SelectById(id);
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+
+        // POST: api/Default
+        [Route, HttpPost]
+        public HttpResponseMessage Post(Users model)
+        {
+            try
+            {
+                int id = usersService.Insert(model);
+
+                ItemResponse<int> resp = new ItemResponse<int>();
+                resp.Item = id;
+
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
 
         // PUT: api/Default/5
@@ -34,8 +95,19 @@ namespace FriendlyLearning.Controllers.Api
         }
 
         // DELETE: api/Default/5
-        public void Delete(int id)
+        [Route("{int:id}"), HttpDelete]
+        public HttpResponseMessage Delete(int id)
         {
+            try
+            {
+                usersService.Delete(id);
+                SuccessResponse resp = new SuccessResponse();
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
     }
 }

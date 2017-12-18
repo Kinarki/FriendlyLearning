@@ -60,9 +60,9 @@
       <Project>{47b19f48-d453-4058-a515-2508a5290dbe}</Project>
       <Name>FriendlyLearning.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FriendlyLearning.services\FriendlyLearning.services.csproj">
+    <ProjectReference Include="..\FriendlyLearning.services\FriendlyLearning.Services.csproj">
       <Project>{2efc38cd-aeb8-414d-ac24-5cd5e01183db}</Project>
-      <Name>FriendlyLearning.services</Name>
+      <Name>FriendlyLearning.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

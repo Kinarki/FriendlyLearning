@@ -42,13 +42,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseService.cs" />
+    <Compile Include="Interfaces\IUsersService.cs" />
     <Compile Include="MainService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsersService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\FriendlyLearning.Models.cs\FriendlyLearning.Models.csproj">
       <Project>{47b19f48-d453-4058-a515-2508a5290dbe}</Project>

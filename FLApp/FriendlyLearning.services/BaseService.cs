@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FriendlyLearning.services
+namespace FriendlyLearning.Services
 {
     public abstract class BaseService 
     {
