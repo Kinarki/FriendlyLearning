@@ -1,17 +1,75 @@
 ﻿<div class="row">
-    <div class="leftPanel col-xs-12 col-md-5 text-center">
+    <div class="mainPanel col-xs-12 col-md-2 text-center">
         <h1>Letters</h1>
     </div>
-    <div class="rightPanel col-xs-12 col-md-5 text-center">
+    <div class="mainPanel col-xs-12 col-md-2 text-center">
         <h1>Numbers</h1>
     </div>
-</div>
 
-<div class="row">
-    <div class="leftPanel col-xs-12 col-md-5 text-center">
+    <div class="mainPanel col-xs-12 col-md-2 text-center">
         <h1>Colors</h1>
     </div>
-    <div class="rightPanel col-xs-12 col-md-5 text-center">
+    <div class="mainPanel col-xs-12 col-md-2 text-center">
         <h1>Pictures</h1>
+    </div>
+</div>
+<div id="landingPage">
+    <div class="container loginDiv">
+        <div class="buttonTable col-xs-8">
+            <span class="landingButtons">
+                <button type="button" class="btn btn-lg btn-info">Register</button>
+                <button type="button" class="btn btn-lg btn-info">Login</button>
+            </span>
+        </div>
+        <div class="forms col-xs-4">
+            <div class="col-md-10 col-md-offset-2">
+                <div class="registerWrapper">
+                    <form id="registerForm" class="" name="regForm" ng-submit="regCtrl.submitForm(regForm.$valid)" novalidate>
+                        <h3 class="text-left">Create new account</h3>
+                        <fieldset>
+                            <section>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" class="form-control" ng-model="regCtrl.item.email" ng-change="regCtrl.checkEmail(regForm.email.$valid)" ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/' required>
+                                    <p class="validationText" ng-show="regForm.email.$invalid && !regForm.email.$pristine">A valid email is required</p>
+                                    <p class="validationText" ng-show="regCtrl.emailTaken && regForm.email.$pristine">***This email has already been registered***</p>
+                                </div>
+                            </section>
+
+                            <section>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" class="form-control" ng-model="regCtrl.item.basicpass" ng-pattern="/.*[0-9].*/" ng-minlength="6" required>
+                                    <p class="validationText" ng-show="regForm.password.$error.minlength">Minimum of 6 characters. </p>
+                                    <p class="validationText" ng-show="regForm.password.$error.pattern">Must include atleast 1 number. </p>
+                                </div>
+                            </section>
+
+                            <section>
+                                <div class="form-group">
+                                    <label for="confirmPass">Confirm Password</label>
+                                    <input type="password" name="confirmPass" class="form-control" ng-model="regCtrl.confirmPass" ng-pattern="regCtrl.item.basicpass" required>
+                                    <p class="col-md-6 validationText" ng-show="regForm.confirmPass.$error.pattern">Passwords must match. </p>
+                                </div>
+                            </section>
+                        </fieldset>
+                        <footer>
+                            <button type="submit" class="btn btn-skin btn-lg button1" ng-disabled="regForm.$invalid || regCtrl.emailTaken">Create Account</button>
+                        </footer>
+                    </form>
+                </div>
+            </div><!--col end-->
+
+            <!--<div class="col-md-6">
+                <div class="login-register-aside-box">
+                    <h3>Already have an account?</h3>
+                    <p>
+                    </p>
+                    <br>
+                    <a href='login' class="btn btn-light-dark btn-lg">Login Now</a>
+                </div>
+            </div>-->
+        </div>
+    <!--<form id="loginForm"></form>-->
     </div>
 </div>
