@@ -2,6 +2,23 @@
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    position: relative;
+    padding: 0;
+}
+
+.navDiv, #navBar, #navbar-collapse-4 {
+    padding: 0;
+    border-radius: 0;
+    height: 10vh !important;
+}
+
+#navbar-collapse-4 {
+    padding: 25px;
+}
+
+#navBar, #navBar.container-fluid {
+    border-radius: 0;
+    height: inherit;
 }
 
 .mainBody {
@@ -11,6 +28,53 @@
     padding-right: 15px;
 }
 
+#landingPage {
+    height: 100vh;
+    width: 100vw;
+    z-index: 5000;
+    position: absolute;
+    top: -97px;
+    left: 0;
+    background: url('../App/Public/Images/friendlyLearningLanding.png') 0px -137px / cover no-repeat;
+}
+
+.landingButtons {
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0 0 15vh 17vh;
+}
+
+.landingButtons button {
+    width: 15vw;
+    height: 10vh;
+    margin-right: 4vw;
+    font-size: 3em;
+}
+
+.loginDiv {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.loginDiv .buttonTable {
+    text-align: center;
+    display: table;
+    height: 100%;
+    padding: 0;
+}
+
+.registerWrapper {
+    border: 2px solid white;
+    padding: 25px;
+    border-radius: 25px;
+}
+
+#registerForm {
+    color: white;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -25,10 +89,10 @@ textarea {
     max-width: 280px;
 }
 
-.leftPanel, .rightPanel {
-    height: 40vh;
+.mainPanel {
+    height: 60vh;
     border: 1px solid black;
-    margin: 3vh 0 0 6vw;
+    margin: 13vh 0 0 6vw;
 }
 
 /*
@@ -45,6 +109,11 @@ Follow me on Twitter @maridlcrmn
 .navbar-brand {
     position: relative;
     z-index: 2;
+}
+
+.navbar-brand.brandName {
+    font-size: 3em;
+    padding: 3vh;
 }
 
 .navbar-nav.navbar-right .btn {
@@ -95,7 +164,7 @@ Follow me on Twitter @maridlcrmn
 }
 
 .btn.btn-circle {
-    border-radius: 50px;
+    border-radius: 5px;
 }
 
 .btn.btn-outline {

@@ -55,7 +55,7 @@
                 .catch(vm.error);
         }
 
-        function _selectByIdSuccess(resp) {
+        function _byIdSuccess(resp) {
             console.log(resp);
         }
 
