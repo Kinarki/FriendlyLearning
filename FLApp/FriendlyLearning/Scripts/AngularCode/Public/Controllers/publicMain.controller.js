@@ -20,6 +20,10 @@
         vm.byIdSuccess = _byIdSuccess;
         vm.updateUser = _updateUser;
         vm.deleteUser = _deleteUser;
+        vm.registerForm = _registerForm;
+        vm.registerFormShow = false;
+        vm.loginForm = _loginForm;
+        vm.loginFormShow = false;
 
         function _onInit() {
             console.log("public init inited");
@@ -69,6 +73,16 @@
             vm.publicMainService.deleteUser(id)
                 .then(vm.success)
                 .catch(vm.error);
+        }
+
+        function _registerForm() {
+            vm.loginFormShow = false;
+            vm.registerFormShow = true;
+        }
+
+        function _loginForm() {
+            vm.registerFormShow = false;
+            vm.loginFormShow = true;
         }
     }
 })();
