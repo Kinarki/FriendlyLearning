@@ -13,6 +13,7 @@
             , selectById: _selectById
             , updateUser: _updateUser
             , deleteUser: _deleteUser
+            , checkEmail: _checkEmail
         }
 
         function _insertUser(data) {
@@ -49,6 +50,10 @@
                 { withCredentials: true })
                 .then(success)
                 .catch(error);
+        }
+
+        function _checkEmail() {
+
         }
 
         function success(resp) {

@@ -20,13 +20,21 @@
         vm.byIdSuccess = _byIdSuccess;
         vm.updateUser = _updateUser;
         vm.deleteUser = _deleteUser;
+        vm.registerForm = _registerForm;
+        vm.registerFormShow = false;
+        vm.loginForm = _loginForm;
+        vm.loginFormShow = false;
+        vm.item = [];
+        vm.checkEmail = _checkEmail;
+        vm.emailSuccess = _emailSuccess;
+        vm.emailTaken = false;
 
         function _onInit() {
             console.log("public init inited");
         }
 
-        function _insertUser(data) {
-            vm.publicMainService.InsertUser(data)
+        function _insertUser() {
+            vm.publicMainService.InsertUser(vm.item)
                 .then(vm.success)
                 .catch(vm.error);
         }
@@ -69,6 +77,31 @@
             vm.publicMainService.deleteUser(id)
                 .then(vm.success)
                 .catch(vm.error);
+        }
+
+        function _registerForm() {
+            vm.loginFormShow = false;
+            vm.registerFormShow = true;
+        }
+
+        function _loginForm() {
+            vm.registerFormShow = false;
+            vm.loginFormShow = true;
+        }
+
+        function _checkEmail() {
+            vm.publicMainService.email(vm.item.email)
+                .then(vm.emailSuccess).catch(vm.error);
+        }
+
+        function _emailSuccess(res) {
+            if (res.data.item === 1) {
+                vm.emailTaken = true;
+                $scope.regForm.$setPristine();
+            }
+            else {
+                vm.emailTaken = false;
+            }
         }
     }
 })();

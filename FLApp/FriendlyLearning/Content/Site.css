@@ -33,7 +33,7 @@
     width: 100vw;
     z-index: 5000;
     position: absolute;
-    top: -97px;
+    top: 0;
     left: 0;
     background: url('../App/Public/Images/friendlyLearningLanding.png') 0px -137px / cover no-repeat;
 }
@@ -51,6 +51,7 @@
     height: 10vh;
     margin-right: 4vw;
     font-size: 3em;
+    box-shadow: 5px 5px 5px gray;
 }
 
 .loginDiv {
@@ -72,8 +73,27 @@
     border-radius: 25px;
 }
 
-#registerForm {
+#registerForm, #loginForm {
     color: white;
+}
+
+#loginForm button, #registerForm button {
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+.forms {
+    padding-top: 20vh;
+}
+
+.regLogSpan {
+    width: 50%;
+    float: right;
+
+}
+
+.regLogSpan a {
+    color: rebeccapurple;
 }
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
