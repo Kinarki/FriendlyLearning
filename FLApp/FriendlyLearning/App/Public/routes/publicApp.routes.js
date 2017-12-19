@@ -16,8 +16,14 @@
                 url: '/Public/home',
                 templateUrl: '/App/Public/Templates/publicMainDetails.html',
                 title: "Home",
-                //controller: 'publicMainController as pmCtrl'
                 component: "/Scripts/AngularCode/Public/Components/publicMain.component.js"
+            })
+            .state({
+                name: "scraper",
+                url: "Public/Scraper",
+                templateUrl: "/App/Scraper/Html/scraperDetails.html",
+                title: "Scraper",
+                component: "/Scripts/AngularCode/Public/Components/scraper.component.js"
             });
     }
 })();

@@ -54,8 +54,8 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlAgilityPack, Version=1.6.7.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
-      <HintPath>..\packages\HtmlAgilityPack.1.6.7\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    <Reference Include="HtmlAgilityPack, Version=1.6.8.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.6.8\lib\Net45\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
@@ -278,8 +278,11 @@
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\AngularCode\Admin\Components\adminMain.component.js" />
+    <Content Include="Scripts\AngularCode\Public\Components\scraper.component.js" />
     <Content Include="Scripts\AngularCode\Admin\Controllers\adminMain.controller.js" />
+    <Content Include="Scripts\AngularCode\Public\Controllers\scraper.controller.js" />
     <Content Include="Scripts\AngularCode\Admin\Services\adminMain.service.js" />
+    <Content Include="Scripts\AngularCode\Public\Services\scraper.service.js" />
     <Content Include="Scripts\AngularCode\Public\Components\Colors\colorsMain.component.js" />
     <Content Include="Scripts\AngularCode\Public\Components\Letters\lettersMain.component.js" />
     <Content Include="Scripts\AngularCode\Public\Components\Numbers\numbersMain.component.js" />
@@ -1107,6 +1110,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\Scraper\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

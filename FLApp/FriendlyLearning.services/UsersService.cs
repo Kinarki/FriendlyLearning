@@ -7,7 +7,7 @@ using FriendlyLearning.Services.Interfaces;
 
 namespace FriendlyLearning.Services
 {
-    public class UsersService : IUsersService
+    public class UsersService : BaseService, IUsersService
     {
         public int Insert(Users model)
         {

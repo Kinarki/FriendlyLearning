@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="learningPublicApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Public Index Page</title>
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    <link href="/Content/Site.css" rel="stylesheet" />
+</head>
+<body ng-controller="scraperController">
+    <div class="container-fluid col-xs-12 body-content">
+        <div ui-view>
+            <scraper-component></scraper-component>
+        </div>
+    </div>
+    <script src="/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="/Scripts/angular.js"></script>
+    <script src="/Scripts/angular-ui-router.js"></script>
+    <script src="/Scripts/angular-route.js"></script>
+    <script src="/app/public/routes/publicApp.routes.js"></script>
+    <script src="/app/public/public.app.js"></script>
+    <script src="/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="/Scripts/AngularCode/Public/Controllers/scraper.controller.js"></script>
+    <script src="/Scripts/AngularCode/Public/Services/scraper.service.js"></script>
+    <script src="/Scripts/AngularCode/Public/Components/scraper.component.js"></script>
+</body>
+</html>
