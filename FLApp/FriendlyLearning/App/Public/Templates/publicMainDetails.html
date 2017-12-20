@@ -1,4 +1,4 @@
-﻿<div class="row">
+﻿<div class="row" ng-if="!$ctrl.login">
     <div class="mainPanel col-xs-12 col-md-2 text-center">
         <h1>Letters</h1>
     </div>
@@ -13,7 +13,7 @@
         <h1>Pictures</h1>
     </div>
 </div>
-<div id="landingPage">
+<div id="landingPage" ng-if="!$ctrl.login">
     <div class="container loginDiv">
         <div class="buttonTable col-xs-8">
             <span class="landingButtons">
@@ -99,3 +99,4 @@
         </div>
     </div>
 </div>
+<scraper-component ng-if="$ctrl.login"></scraper-component>

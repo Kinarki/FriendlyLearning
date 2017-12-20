@@ -1,14 +1,13 @@
 ﻿using FriendlyLearning.Models.cs.Domain;
-using FriendlyLearning.Services;
 using HtmlAgilityPack;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 
-namespace FriendlyLearning.services
+namespace FriendlyLearning.Services
 {
-    public class ScraperService : BaseService, IScraperService
+    public class ScraperService : BaseService
     {
         public AnimalModels GetAll()
         {
@@ -27,14 +26,17 @@ namespace FriendlyLearning.services
                 .DocumentNode
                 .Descendants("img")
                 .Where(node =>
-                    node.Attributes["src"] != null)
+                    node.Attributes["src"] != null &&
+                    node.Attributes["title"] != null)
                 .ToList();
 
             foreach (var node in nodes)
             {
-                Console.WriteLine(node.Attributes["src"].Value);
+                AnimalModel item = new AnimalModel();
+                item.AnimalName = node.Attributes["title"].Value;
+                item.Src = node.Attributes["src"].Value;
+                animal.Info.Add(item);
             }
-            Console.ReadLine();
             return animal;
         }
     }

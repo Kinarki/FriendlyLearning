@@ -28,6 +28,7 @@
         vm.checkEmail = _checkEmail;
         vm.emailSuccess = _emailSuccess;
         vm.emailTaken = false;
+        vm.login = true;
 
         function _onInit() {
             console.log("public init inited");
@@ -90,8 +91,8 @@
         }
 
         function _checkEmail() {
-            vm.publicMainService.email(vm.item.email)
-                .then(vm.emailSuccess).catch(vm.error);
+            //vm.publicMainService.checkEmail(vm.item.email)
+            //    .then(vm.emailSuccess).catch(vm.error);
         }
 
         function _emailSuccess(res) {

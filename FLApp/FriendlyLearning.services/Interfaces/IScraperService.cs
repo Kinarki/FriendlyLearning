@@ -1,10 +1,10 @@
 ﻿using FriendlyLearning.Models.cs.Domain;
 using System.Collections.Generic;
 
-namespace FriendlyLearning.services
+namespace FriendlyLearning.Services.Interfaces
 {
     public interface IScraperService
     {
-        AnimalModels GetAll();
+        List<AnimalModels> GetAll();
     }
 }

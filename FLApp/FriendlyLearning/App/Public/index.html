@@ -9,51 +9,12 @@
     <link href="/Content/Site.css" rel="stylesheet" />
 </head>
 <body ng-controller="publicMainController">
-    <!--<div class="container-fluid navDiv">
-
-            <nav class="navbar navbar-inverse" id="navBar">
-                <div class="container-fluid">
-                   
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-4">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand brandName" href="#">Friendly Learning</a>
-                    </div>
-
-                    <div class="collapse navbar-collapse" id="navbar-collapse-4">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a class="btn btn-default btn-outline btn-circle collapsed btn-lg pull-right">Register</a>
-                            </li>
-                            <li>
-                                <a class="btn btn-default btn-outline btn-circle collapsed btn-lg pull-right" data-toggle="collapse" href="#nav-collapse2" aria-expanded="false" aria-controls="nav-collapse2">Sign in</a>
-                            </li>
-                        </ul>
-                        <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse2">
-                            <form class="navbar-form navbar-right form-inline" role="form">
-                                <div class="form-group">
-                                    <label class="sr-only" for="Email">Email</label>
-                                    <input type="email" class="form-control" id="Email" placeholder="Email" autofocus required />
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="Password">Password</label>
-                                    <input type="password" class="form-control" id="Password" placeholder="Password" required />
-                                </div>
-                                <button type="submit" class="btn btn-success">Sign in</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-    </div>-->
-
+    <nav class="navbar navbar-light bg-primary" id="navBar">
+        <h1 class="navbar-brand pull-right">Friendly Learning</h1>
+    </nav>
     <div class="container-fluid col-xs-12 body-content">
         <div ui-view>
-            <public-main main-bind="publicBind"></public-main>
+            <public-main></public-main>
         </div>
     </div>
     <script src="/Scripts/jquery-3.2.1.min.js"></script>
@@ -67,5 +28,8 @@
     <script src="/Scripts/AngularCode/Public/Controllers/publicMain.controller.js"></script>
     <script src="/Scripts/AngularCode/Public/Services/publicMain.service.js"></script>
     <script src="/Scripts/AngularCode/Public/Components/publicMain.component.js"></script>
+    <script src="/Scripts/AngularCode/Public/Controllers/scraper.controller.js"></script>
+    <script src="/Scripts/AngularCode/Public/Services/scraper.service.js"></script>
+    <script src="/Scripts/AngularCode/Public/Components/scraper.component.js"></script>
 </body>
 </html>

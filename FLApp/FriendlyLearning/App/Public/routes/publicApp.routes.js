@@ -9,18 +9,18 @@
             enabled: true,
             requireBase: false
         });
-        $urlRouterProvider.otherwise('/Public/home');
+        $urlRouterProvider.otherwise('/home');
         $stateProvider
             .state({
                 name: 'home',
-                url: '/Public/home',
+                url: '/home',
                 templateUrl: '/App/Public/Templates/publicMainDetails.html',
                 title: "Home",
                 component: "/Scripts/AngularCode/Public/Components/publicMain.component.js"
             })
             .state({
                 name: "scraper",
-                url: "Public/Scraper",
+                url: "/scraper",
                 templateUrl: "/App/Scraper/Html/scraperDetails.html",
                 title: "Scraper",
                 component: "/Scripts/AngularCode/Public/Components/scraper.component.js"
