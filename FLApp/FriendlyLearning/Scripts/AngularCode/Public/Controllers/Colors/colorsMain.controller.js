@@ -10,6 +10,7 @@
         var vm = this;
         vm.$scope = $scope;
         vm.colorsMainService = ColorsMainService;
-        vm.$onInit = _onInit;
+        //vm.$onInit = _onInit;
+        vm.colors = ["BLACK", "WHITE", 'RED', 'BLUE', 'GREEN', 'YELLOW', 'PURPLE', 'ORANGE', 'BROWN'];
     }
 })();

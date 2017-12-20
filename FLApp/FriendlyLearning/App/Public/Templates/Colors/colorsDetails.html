@@ -1,5 +1,12 @@
 ﻿<div class="panel panel-default">
     <div class="container imageTable col-xs-12">
-
+        <!-- black, white, red, blue, green, yellow, purple, orange, brown, gray -->
+        <div ng-repeat="clr in clrCtrl.colors">
+            <div class="colorWrapper col-xs-4">
+                <div class="colorDiv" style="background-color:{{ clr }}">
+                    {{clr}}
+                </div>
+            </div>
+        </div>
     </div>
 </div>
