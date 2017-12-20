@@ -4,11 +4,12 @@
         .module("learningPublicApp")
         .controller("publicMainController", PublicMainController);
 
-    PublicMainController.$inject = ["$scope", "publicMainService"];
+    PublicMainController.$inject = ["$scope", "$location", "publicMainService"];
 
-    function PublicMainController($scope, PublicMainService) {
+    function PublicMainController($scope, $location, PublicMainService) {
         var vm = this;
         vm.$scope = $scope;
+        vm.$location = $location;
         vm.publicMainService = PublicMainService;
         vm.$onInit = _onInit;
         vm.insertUser = _insertUser;
@@ -28,6 +29,9 @@
         vm.checkEmail = _checkEmail;
         vm.emailSuccess = _emailSuccess;
         vm.emailTaken = false;
+        vm.login = true;
+        vm.picRoute = _picRoute;
+
 
         function _onInit() {
             console.log("public init inited");
@@ -90,8 +94,8 @@
         }
 
         function _checkEmail() {
-            vm.publicMainService.email(vm.item.email)
-                .then(vm.emailSuccess).catch(vm.error);
+            //vm.publicMainService.checkEmail(vm.item.email)
+            //    .then(vm.emailSuccess).catch(vm.error);
         }
 
         function _emailSuccess(res) {
@@ -102,6 +106,12 @@
             else {
                 vm.emailTaken = false;
             }
+        }
+
+        function _picRoute() {
+            var absUrl = vm.$location.absUrl();
+            console.log(absUrl);
+            vm.$location.path("/scraper");
         }
     }
 })();
