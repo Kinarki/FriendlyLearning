@@ -35,5 +35,6 @@
         function _scrapeError(err) {
             console.log(err);
         }
+
     }
 })();

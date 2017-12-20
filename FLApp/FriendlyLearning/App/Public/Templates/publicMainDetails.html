@@ -1,102 +1,103 @@
-﻿<div class="row" ng-if="!$ctrl.login">
-    <div class="mainPanel col-xs-12 col-md-2 text-center">
-        <h1>Letters</h1>
-    </div>
-    <div class="mainPanel col-xs-12 col-md-2 text-center">
-        <h1>Numbers</h1>
-    </div>
-
-    <div class="mainPanel col-xs-12 col-md-2 text-center">
-        <h1>Colors</h1>
-    </div>
-    <div class="mainPanel col-xs-12 col-md-2 text-center">
-        <h1>Pictures</h1>
-    </div>
-</div>
-<div id="landingPage" ng-if="!$ctrl.login">
-    <div class="container loginDiv">
-        <div class="buttonTable col-xs-8">
-            <span class="landingButtons">
-                <button type="button" class="btn btn-lg btn-info" ng-click="$ctrl.registerForm()">Register</button>
-                <button type="button" class="btn btn-lg btn-info" ng-click="$ctrl.loginForm()">Login</button>
-            </span>
+﻿<div class="panel panel-default panelPage inner-body">
+    <div class="row" ng-if="pmCtrl.login">
+        <div class="mainPanel col-xs-12 col-md-2 text-center" ui-sref="letters">
+            <h1>Letters</h1>
         </div>
-        <div class="forms col-xs-4">
-            <div class="col-md-10 col-md-offset-2">
-                <div class="registerWrapper" ng-show="$ctrl.registerFormShow">
-                    <form id="registerForm" class="" name="regForm" ng-submit="$ctrl.submitForm(regForm.$valid)" novalidate>
-                        <h3 class="text-left">Create new account</h3>
-                        <fieldset>
-                            <section>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" name="email" class="form-control" ng-model="$ctrl.item.email" ng-change="$ctrl.checkEmail(regForm.email.$valid)" ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/' required>
-                                    <p class="validationText" ng-show="regForm.email.$invalid && !regForm.email.$pristine">A valid email is required</p>
-                                    <p class="validationText" ng-show="$ctrl.emailTaken && regForm.email.$pristine">***This email has already been registered***</p>
-                                </div>
-                            </section>
+        <div class="mainPanel col-xs-12 col-md-2 text-center" ui-sref="numbers">
+            <h1>Numbers</h1>
+        </div>
 
-                            <section>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" name="password" class="form-control" ng-model="$ctrl.item.basicpass" ng-pattern="/.*[0-9].*/" ng-minlength="6" required>
-                                    <p class="validationText" ng-show="regForm.password.$error.minlength">Minimum of 6 characters. </p>
-                                    <p class="validationText" ng-show="regForm.password.$error.pattern">Must include atleast 1 number. </p>
-                                </div>
-                            </section>
+        <div class="mainPanel col-xs-12 col-md-2 text-center" ui-sref="colors">
+            <h1>Colors</h1>
+        </div>
+        <div class="mainPanel col-xs-12 col-md-2 text-center" ui-sref="scraper">
+            <h1>Pictures</h1>
+        </div>
+    </div>
+    <div id="landingPage" ng-if="!pmCtrl.login">
+        <div class="container loginDiv">
+            <div class="buttonTable col-xs-8">
+                <span class="landingButtons">
+                    <button type="button" class="btn btn-lg btn-info" ng-click="pmCtrl.registerForm()">Register</button>
+                    <button type="button" class="btn btn-lg btn-info" ng-click="pmCtrl.loginForm()">Login</button>
+                </span>
+            </div>
+            <div class="forms col-xs-4">
+                <div class="col-md-10 col-md-offset-2">
+                    <div class="registerWrapper" ng-show="pmCtrl.registerFormShow">
+                        <form id="registerForm" class="" name="regForm" ng-submit="pmCtrl.submitForm(regForm.$valid)" novalidate>
+                            <h3 class="text-left">Create new account</h3>
+                            <fieldset>
+                                <section>
+                                    <div class="form-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" class="form-control" ng-model="pmCtrl.item.email" ng-change="pmCtrl.checkEmail(regForm.email.$valid)" ng-pattern='/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/' required>
+                                        <p class="validationText" ng-show="regForm.email.$invalid && !regForm.email.$pristine">A valid email is required</p>
+                                        <p class="validationText" ng-show="pmCtrl.emailTaken && regForm.email.$pristine">***This email has already been registered***</p>
+                                    </div>
+                                </section>
 
-                            <section>
-                                <div class="form-group">
-                                    <label for="confirmPass">Confirm Password</label>
-                                    <input type="password" name="confirmPass" class="form-control" ng-model="$ctrl.confirmPass" ng-pattern="$ctrl.item.basicpass" required>
-                                    <p class="col-md-6 validationText" ng-show="regForm.confirmPass.$error.pattern">Passwords must match. </p>
-                                </div>
-                            </section>
-                        </fieldset>
-                        <footer>
-                            <button type="submit" class="btn btn-skin btn-lg button1" ng-disabled="regForm.$invalid || $ctrl.emailTaken">Create Account</button>
-                            <span class="regLogSpan">Already have an account? <a href='#' ng-click="$ctrl.loginForm()" class="btn btn-light-dark btn-lg"> Login Now</a></span>
-                        </footer>
-                    </form>
-                </div>
-                <div class="registerWrapper" ng-show="$ctrl.loginFormShow">
-                    <form id="loginForm">
-                        <h3 class="text-left">Log in to your account</h3>
-                        <fieldset>
-                            <section>
-                                <div class="row">
+                                <section>
                                     <div class="form-group">
-                                        <label for="email">Your E-mail</label>
-                                        <input ng-model="$ctrl.item.email" id="email" type="email" name="email" class="form-control" required>
-                                        <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine">Please enter a valid email.</p>
+                                        <label for="password">Password</label>
+                                        <input type="password" name="password" class="form-control" ng-model="pmCtrl.item.basicpass" ng-pattern="/.*[0-9].*/" ng-minlength="6" required>
+                                        <p class="validationText" ng-show="regForm.password.$error.minlength">Minimum of 6 characters. </p>
+                                        <p class="validationText" ng-show="regForm.password.$error.pattern">Must include atleast 1 number. </p>
                                     </div>
-                                </div>
-                            </section>
-                            <section>
-                                <div class="row">
+                                </section>
+
+                                <section>
                                     <div class="form-group">
-                                        <label for="password">Enter Password</label>
-                                        <input ng-model="$ctrl.item.password" id="password" class="form-control" type="password" name="password" required ng-pattern="/.*[0-9].*/" ng-minlength="6">
-                                        <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine">Please enter a valid password.</p>
+                                        <label for="confirmPass">Confirm Password</label>
+                                        <input type="password" name="confirmPass" class="form-control" ng-model="pmCtrl.confirmPass" ng-pattern="pmCtrl.item.basicpass" required>
+                                        <p class="col-md-6 validationText" ng-show="regForm.confirmPass.$error.pattern">Passwords must match. </p>
                                     </div>
-                                </div>
-                            </section>
-                            <section>
-                                <div class="row">
-                                    <div class="col-md-6"></div>
-                                    <div class="col-sm-6">
-                                        <p ng-show="$ctrl.invalidMsg"><font color="red">Login failed. Invalid e-mail or password.</font></p>
+                                </section>
+                            </fieldset>
+                            <footer>
+                                <button type="submit" class="btn btn-skin btn-lg button1" ng-disabled="regForm.$invalid || pmCtrl.emailTaken">Create Account</button>
+                                <span class="regLogSpan">Already have an account? <a href='#' ng-click="pmCtrl.loginForm()" class="btn btn-light-dark btn-lg"> Login Now</a></span>
+                            </footer>
+                        </form>
+                    </div>
+                    <div class="registerWrapper" ng-show="pmCtrl.loginFormShow">
+                        <form id="loginForm">
+                            <h3 class="text-left">Log in to your account</h3>
+                            <fieldset>
+                                <section>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label for="email">Your E-mail</label>
+                                            <input ng-model="pmCtrl.item.email" id="email" type="email" name="email" class="form-control" required>
+                                            <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine">Please enter a valid email.</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </section>
-                        </fieldset>
-                        <footer class="text-right">
-                            <button type="submit" class="btn btn-lg btn-skin button1" ng-disabled="loginForm.$invalid">Log in</button>
-                        </footer>
-                    </form>
+                                </section>
+                                <section>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label for="password">Enter Password</label>
+                                            <input ng-model="pmCtrl.item.password" id="password" class="form-control" type="password" name="password" required ng-pattern="/.*[0-9].*/" ng-minlength="6">
+                                            <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine">Please enter a valid password.</p>
+                                        </div>
+                                    </div>
+                                </section>
+                                <section>
+                                    <div class="row">
+                                        <div class="col-md-6"></div>
+                                        <div class="col-sm-6">
+                                            <p ng-show="pmCtrl.invalidMsg"><font color="red">Login failed. Invalid e-mail or password.</font></p>
+                                        </div>
+                                    </div>
+                                </section>
+                            </fieldset>
+                            <footer class="text-right">
+                                <button type="submit" class="btn btn-lg btn-skin button1" ng-disabled="loginForm.$invalid">Log in</button>
+                            </footer>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<scraper-component ng-if="$ctrl.login"></scraper-component>

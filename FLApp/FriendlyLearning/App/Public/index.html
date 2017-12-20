@@ -8,19 +8,17 @@
     <link href="/Content/bootstrap.css" rel="stylesheet" />
     <link href="/Content/Site.css" rel="stylesheet" />
 </head>
-<body ng-controller="publicMainController">
+<body>
     <nav class="navbar navbar-light bg-primary" id="navBar">
-        <h1 class="navbar-brand pull-right">Friendly Learning</h1>
+        <h1 class="navbar-brand pull-right"><a ui-sref="home" class="brandName">Friendly Learning</a></h1>
     </nav>
     <div class="container-fluid col-xs-12 body-content">
         <div ui-view>
-            <public-main></public-main>
         </div>
     </div>
     <script src="/Scripts/jquery-3.2.1.min.js"></script>
     <script src="/Scripts/angular.js"></script>
     <script src="/Scripts/angular-ui-router.js"></script>
-    <script src="/Scripts/angular-route.js"></script>
     <script src="/app/public/routes/publicApp.routes.js"></script>
     <script src="/app/public/public.app.js"></script>
     <script src="/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>

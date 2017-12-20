@@ -4,28 +4,28 @@
     overflow: hidden;
     position: relative;
     padding: 0;
+    background-color: lightgray;
 }
 
-.navDiv, #navBar {
-    padding: 0;
-    border-radius: 0;
-    height: 10vh !important;
-    background: url('../App/Public/Images/perfect-clouds-wallpapers.jpg') 0px -100px / cover no-repeat;
-}
-
-.mainBody {
+.body-content, .body-content > div {
     height: 100%;
     width: 100%;
     padding-left: 15px;
     padding-right: 15px;
 }
 
+/*
+
+    Landing Page Styles
+
+*/
+
 #landingPage {
     height: 100vh;
     width: 100vw;
     z-index: 5000;
     position: absolute;
-    top: 0;
+    top: -115px;
     left: 0;
     background: url('../App/Public/Images/friendlyLearningLanding.png') 0px -137px / cover no-repeat;
 }
@@ -78,21 +78,50 @@
     padding-top: 20vh;
 }
 
+.panelPage {
+    width: 100%;
+    height: 85%;
+    border: 1px solid lightblue;
+    background-color: #4794A9;
+    border-radius: 15px;
+}
+
 .regLogSpan {
     width: 50%;
     float: right;
-
 }
 
 .regLogSpan a {
     color: rebeccapurple;
 }
 
+/*
+
+    End Landing Page Styles
+
+*/
+
+/*
+
+    Main Page Styles
+
+*/
+
 .mainPanel {
     height: 60vh;
-    border: 1px solid black;
+    color: white;
+    border: 1px solid white;
     margin: 13vh 0 0 6vw;
+    border-radius: 15px;
+    box-shadow: 7px 5px 25px lightgray;
 }
+
+/*
+
+    End Main Page Styles
+
+*/
+
 
 /*
 
@@ -105,6 +134,19 @@
     z-index: 2;
     font-size: 3em;
     margin-right: 10vw;
+    color: white;
+}
+
+.navDiv, #navBar {
+    padding: 0;
+    border-radius: 0;
+    height: 10vh !important;
+    background: url('../App/Public/Images/perfect-clouds-wallpapers.jpg') 0px -100px / cover no-repeat;
+}
+
+.brandName:hover, .brandName:active, .brandName:visited, .brandName:link {
+    color: white;
+    text-decoration: none;
 }
 
 /*
@@ -129,6 +171,11 @@
     border: 1px solid black;
 }
 
+/*
+
+    End Picture Styles
+
+*/
 
 
 

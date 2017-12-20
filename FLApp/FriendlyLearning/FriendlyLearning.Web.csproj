@@ -203,6 +203,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\ColorsController.cs" />
+    <Compile Include="Controllers\Api\LettersController.cs" />
     <Compile Include="Controllers\Api\ScraperController.cs" />
     <Compile Include="Controllers\Api\LearningController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -278,17 +280,8 @@
     </Content>
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
-    <Content Include="Scripts\AngularCode\Admin\Components\adminMain.component.js" />
-    <Content Include="Scripts\AngularCode\Public\Components\scraper.component.js" />
-    <Content Include="Scripts\AngularCode\Admin\Controllers\adminMain.controller.js" />
     <Content Include="Scripts\AngularCode\Public\Controllers\scraper.controller.js" />
-    <Content Include="Scripts\AngularCode\Admin\Services\adminMain.service.js" />
     <Content Include="Scripts\AngularCode\Public\Services\scraper.service.js" />
-    <Content Include="Scripts\AngularCode\Public\Components\Colors\colorsMain.component.js" />
-    <Content Include="Scripts\AngularCode\Public\Components\Letters\lettersMain.component.js" />
-    <Content Include="Scripts\AngularCode\Public\Components\Numbers\numbersMain.component.js" />
-    <Content Include="Scripts\AngularCode\Public\Components\Pictures\picturesMain.component.js" />
-    <Content Include="Scripts\AngularCode\Public\Components\publicMain.component.js" />
     <Content Include="Scripts\AngularCode\Public\Controllers\Colors\colorsMain.controller.js" />
     <Content Include="Scripts\AngularCode\Public\Controllers\Letters\lettersMain.controller.js" />
     <Content Include="Scripts\AngularCode\Public\Controllers\Numbers\numbersMain.controller.js" />
