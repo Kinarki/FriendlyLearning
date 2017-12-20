@@ -31,6 +31,9 @@
         vm.emailTaken = false;
         vm.login = true;
         vm.picRoute = _picRoute;
+        vm.true = true;
+        vm.hideBtn = _hideBtn;
+        vm.showBtn = _showBtn;
 
 
         function _onInit() {
@@ -112,6 +115,14 @@
             var absUrl = vm.$location.absUrl();
             console.log(absUrl);
             vm.$location.path("/scraper");
+        }
+
+        function _hideBtn() {
+            vm.true = false;
+        }
+
+        function _showBtn() {
+            vm.true = true;
         }
     }
 })();

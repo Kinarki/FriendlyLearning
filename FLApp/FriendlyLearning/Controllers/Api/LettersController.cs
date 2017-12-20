@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FriendlyLearning.Models.cs.Domain;
+using FriendlyLearning.Models.cs.Responses;
+using FriendlyLearning.services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,33 +10,23 @@ using System.Web.Http;
 
 namespace FriendlyLearning.Controllers.Api
 {
+    [RoutePrefix("api/letters"), AllowAnonymous]
     public class LettersController : ApiController
     {
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+        // GET all
+        [Route, HttpGet]
+        public HttpResponseMessage SelectAll()
         {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<controller>
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(int id)
-        {
+            try
+            {
+                ItemsResponse<Letters> resp = new ItemsResponse<Letters>();
+                resp.Items = LettersService.SelectAll();
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
+            }
         }
     }
 }

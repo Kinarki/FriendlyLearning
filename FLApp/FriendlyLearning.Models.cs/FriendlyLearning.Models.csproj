@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Domain\AnimalModel.cs" />
     <Compile Include="Domain\AnimalModels.cs" />
+    <Compile Include="Domain\Letters.cs" />
     <Compile Include="Domain\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responses\BaseResponse.cs" />

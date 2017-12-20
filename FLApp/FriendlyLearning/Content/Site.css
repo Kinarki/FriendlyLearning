@@ -116,6 +116,21 @@
     box-shadow: 7px 5px 25px lightgray;
 }
 
+.mainPanel:hover {
+   height: 62vh;
+   width: 20vw;
+   transform: scale(1, 1);
+   transition: 0.3s linear;
+   box-shadow: 20px 20px 20px lightgray;
+}
+
+/*.backButton {
+    padding: 15px;
+    font-size: 2em;
+    margin: 2vh 0 0 2vh;
+    border: 1px solid white;
+}*/
+
 /*
 
     End Main Page Styles
@@ -163,12 +178,14 @@
 
 .imageTable {
     display: table;
+    overflow-y: scroll;
 }
 
 .animalImg {
     display: table-cell;
     word-wrap: normal;
     border: 1px solid black;
+    padding: 5px;
 }
 
 /*
@@ -177,26 +194,42 @@
 
 */
 
+/*
 
+    Letters Styles
 
+*/
+.lettersContainer {
+    width: 100%;
+    height: 85%;
+    text-align: center;
+    padding-top: 50px;
+    padding-left: 50px;
+    background-color: #4794A9;
+}
 
+.letterBox {
+    width: 15vw;
+    height: 15vh;
+    font-size: 5em;
+}
 
+.letterWrapper {
+    width: 12vw;
+    height: 7vw;
+    border: 1px solid white;
+    border-radius: 15px;
+    padding-top: 20px;
+    background-color: lightgray;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+.letterWrapper:active {
+    background-color: #4794A9;
+    color: white;
+}
 
 /*
 
-    End Picture Styles
+    End Letters Styles
 
 */

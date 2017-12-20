@@ -30,21 +30,21 @@
                 url: '/colors',
                 templateUrl: "/App/Public/Templates/Colors/colorsDetails.html",
                 title: "Colors",
-                controller: "colorsController as clrCtrl"
+                controller: "colorsMainController as clrCtrl"
             })
             .state({
                 name: 'numbers',
                 url: '/numbers',
                 templateUrl: "/App/Public/Templates/Numbers/numbersDetails.html",
                 title: "Numbers",
-                controller: "numbersController as numCtrl"
+                controller: "numbersMainController as numCtrl"
             })
             .state({
                 name: 'letters',
                 url: '/letters',
                 templateUrl: "/App/Public/Templates/Letters/lettersDetails.html",
                 title: "Letters",
-                controller: "lettersController as ltrCtrl"
+                controller: "lettersMainController as ltrCtrl"
             });
     }
 })();
