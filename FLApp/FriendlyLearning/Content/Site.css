@@ -124,13 +124,6 @@
    box-shadow: 20px 20px 20px lightgray;
 }
 
-/*.backButton {
-    padding: 15px;
-    font-size: 2em;
-    margin: 2vh 0 0 2vh;
-    border: 1px solid white;
-}*/
-
 /*
 
     End Main Page Styles
@@ -217,9 +210,9 @@
 .letterWrapper {
     width: 12vw;
     height: 7vw;
-    border: 1px solid white;
+    border: 7px solid white;
     border-radius: 15px;
-    padding-top: 20px;
+    padding-top: 15px;
     background-color: lightgray;
 }
 
@@ -231,5 +224,33 @@
 /*
 
     End Letters Styles
+
+*/
+
+/*
+
+    Colors Styles
+
+*/
+.colorWrapper {
+    height: 30vh;
+    padding: 20px;
+}
+
+.colorDiv {
+    height: 23vh;
+    font-size: 6em;
+    text-align: center;
+    border-radius: 15px;
+    padding-top: 50px;
+}
+
+.colorDiv {
+
+}
+
+/*
+
+    End Colors Styles
 
 */
