@@ -49,6 +49,7 @@
     <Compile Include="Interfaces\IScraperService.cs" />
     <Compile Include="LettersService.cs" />
     <Compile Include="MainService.cs" />
+    <Compile Include="NumbersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScraperService.cs" />
     <Compile Include="UsersService.cs" />

@@ -232,6 +232,7 @@
     Colors Styles
 
 */
+
 .colorWrapper {
     height: 30vh;
     padding: 20px;
@@ -245,12 +246,31 @@
     padding-top: 50px;
 }
 
-.colorDiv {
+/*
 
+    End Colors Styles
+
+*/
+
+/*
+
+    Numbers Styles
+
+*/
+
+.numbersContainer {
+    padding-top: 33px;
+    padding-left: 55px;
+    height: 35%;
+}
+
+.nums {
+    text-align: center;
+    box-shadow: 5px 4px 3px gray;
 }
 
 /*
 
-    End Colors Styles
+    End Number Styles
 
 */

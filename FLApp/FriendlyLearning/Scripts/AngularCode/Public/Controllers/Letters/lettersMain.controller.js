@@ -41,7 +41,6 @@
         }
 
         function _playAudio(char) {
-            console.log(char);
             var file = "/App/Sounds/audio-alphabet/" + char + ".wav"; 
             var audio = new Audio(file);
             audio.play();

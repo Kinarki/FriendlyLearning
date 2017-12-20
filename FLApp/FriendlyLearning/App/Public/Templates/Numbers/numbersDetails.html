@@ -1,5 +1,11 @@
-﻿<div class="panel panel-default">
-    <div class="container imageTable col-xs-12">
-
+﻿<div class="container panel panel-default numbersContainer col-xs-10 col-xs-offset-1">
+    <div ng-repeat="num in numCtrl.numList" class="col-xs-3 letterBox">
+        <!--   ng-click="ltrCtrl.playAudio(this.char)" -->
+        <div class="letterWrapper" ng-click="numCtrl.playAudio(this.num)">
+            <p class="nums">{{ num }}</p>
+        </div>
     </div>
+</div>
+<div class="container col-xs-10 col-xs-offset-1">
+    <h1>Which number comes next?</h1>
 </div>
