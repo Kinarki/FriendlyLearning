@@ -1,5 +1,6 @@
 ﻿using FriendlyLearning.Models.cs.Domain;
 using FriendlyLearning.Models.cs.Responses;
+using FriendlyLearning.Models.cs.ViewModels;
 using FriendlyLearning.Services;
 using FriendlyLearning.Services.Interfaces;
 using System;
@@ -63,14 +64,13 @@ namespace FriendlyLearning.Web.Controllers.Api
 
         // POST 
         [Route, HttpPost]
-        public HttpResponseMessage Post(Users model)
+        public HttpResponseMessage Post(NewUser model)
         {
             try
             {
-                int id = usersService.Insert(model);
-
+                UsersService user = new UsersService();
                 ItemResponse<int> resp = new ItemResponse<int>();
-                resp.Item = id;
+                resp.Item = user.Insert(model);
 
                 return Request.CreateResponse(HttpStatusCode.OK, resp);
             }

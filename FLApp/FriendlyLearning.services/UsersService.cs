@@ -4,39 +4,45 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System;
 using FriendlyLearning.Services.Interfaces;
+using System.Data;
+using FriendlyLearning.Models.cs.ViewModels;
 
 namespace FriendlyLearning.Services
 {
     public class UsersService : BaseService, IUsersService
     {
-        public int Insert(Users model)
+        public int Insert(NewUser model)
         {
-            int UserId = 0;
-            
+            int id = 0;
+            string salt;
+            string hashedPassword;
+            string password = model.Password;
+
+            CryptographyService svc = new CryptographyService();
+            salt = svc.GenerateRandomString(16);
+            hashedPassword = svc.Hash(password, salt);
+            model.HashedPassword = hashedPassword;
+            model.Salt = salt;
+
             using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString))
             {
                 conn.Open();
-                using (SqlCommand cmd = new SqlCommand("dbo.Users_Insert", conn))
+                using (SqlCommand cmd = new SqlCommand("dbo.Users_InsertNew", conn))
                 {
-                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                    SqlParameterCollection paramCol = cmd.Parameters;
-                    SqlParameter param = new SqlParameter();
-                    param.ParameterName = "@UserId";
-                    param.SqlDbType = System.Data.SqlDbType.Int;
-                    param.Direction = System.Data.ParameterDirection.Output;
-                    paramCol.Add(param);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Email", model.Email);
+                    cmd.Parameters.AddWithValue("@HashedPassword", model.HashedPassword);
+                    cmd.Parameters.AddWithValue("@Salt", model.Salt);
 
-                    paramCol.AddWithValue("@FirstName", model.FirstName);
-                    paramCol.AddWithValue("@LastName", model.LastName);
-                    paramCol.AddWithValue("@Gender", model.Gender);
-                    paramCol.AddWithValue("@Age", model.Age);
-                    paramCol.AddWithValue("@FavoriteColor", model.FavoriteColor);
-                    paramCol.AddWithValue("@AccountId", model.AccountId);
-                    UserId = (int)paramCol["@UserId"].Value;
+                    SqlParameter param = new SqlParameter("@Id", SqlDbType.Int);
+                    param.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(param);
+                    cmd.ExecuteNonQuery();
+                    id = (int)cmd.Parameters["@Id"].Value;
                 }
                 conn.Close();
             }
-            return UserId;
+            return id;
         }
 
         public Users SelectById(int id)
@@ -125,33 +131,7 @@ namespace FriendlyLearning.Services
             int index = 0;
 
             model.UserId = reader.GetInt32(index++);
-            model.FirstName = reader.GetString(index++);
-            model.LastName = reader.GetString(index++);
-            if (!reader.IsDBNull(index))
-            {
-                model.Gender = reader.GetString(index++);
-            }
-            else
-            {
-                index++;
-            }
-            if (!reader.IsDBNull(index))
-            {
-                model.Age = reader.GetInt32(index++);
-            }
-            else
-            {
-                index++;
-            }
-            if (!reader.IsDBNull(index))
-            {
-                model.FavoriteColor = reader.GetString(index++);
-            }
-            else
-            {
-                index++;
-            }
-            model.AccountId = reader.GetInt32(index++);
+
 
             return model;
         }

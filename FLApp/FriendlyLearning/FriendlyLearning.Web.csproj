@@ -281,6 +281,7 @@
     </Content>
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\AngularCode\Public\Controllers\Profile\profile.controller.js" />
     <Content Include="Scripts\AngularCode\Public\Controllers\scraper.controller.js" />
     <Content Include="Scripts\AngularCode\Public\Services\scraper.service.js" />
     <Content Include="Scripts\AngularCode\Public\Controllers\Colors\colorsMain.controller.js" />
@@ -1052,6 +1053,7 @@
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
+    <Content Include="Scripts\AngularCode\Public\Services\Profile\profile.service.js" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />

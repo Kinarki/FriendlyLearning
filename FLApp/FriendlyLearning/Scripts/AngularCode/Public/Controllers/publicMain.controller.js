@@ -12,7 +12,6 @@
         vm.$location = $location;
         vm.publicMainService = PublicMainService;
         vm.$onInit = _onInit;
-        vm.insertUser = _insertUser;
         vm.success = _success;
         vm.error = _error;
         vm.selectAll = _selectAll;
@@ -25,25 +24,33 @@
         vm.registerFormShow = false;
         vm.loginForm = _loginForm;
         vm.loginFormShow = false;
-        vm.item = [];
+        vm.item = {};
         vm.checkEmail = _checkEmail;
         vm.emailSuccess = _emailSuccess;
         vm.emailTaken = false;
-        vm.login = true;
+        vm.login = false;
         vm.picRoute = _picRoute;
         vm.true = true;
         vm.hideBtn = _hideBtn;
         vm.showBtn = _showBtn;
+        vm.register = _register;
+        vm.truthy = _truthy;
 
 
         function _onInit() {
             console.log("public init inited");
         }
 
-        function _insertUser() {
-            vm.publicMainService.InsertUser(vm.item)
+        function _register() {
+            console.log("register activated");
+            vm.login = true;
+            vm.publicMainService.insertUser(vm.item)
                 .then(vm.success)
                 .catch(vm.error);
+        }
+
+        function _truthy() {
+            vm.login = true;
         }
 
         function _success(resp) {

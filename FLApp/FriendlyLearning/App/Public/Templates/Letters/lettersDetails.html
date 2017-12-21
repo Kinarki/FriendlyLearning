@@ -1,6 +1,6 @@
 ﻿<div class="container col-xs-12 panel panel-default lettersContainer">
     <div ng-repeat="char in ltrCtrl.letterList" class="col-xs-3 letterBox">
-        <div class="letterWrapper" ng-click="ltrCtrl.playAudio(this.char)">
+        <div class="letterWrapper  col-xs-3" ng-click="ltrCtrl.playAudio(this.char)">
             <p class="">{{ char }}</p>
         </div>
     </div>

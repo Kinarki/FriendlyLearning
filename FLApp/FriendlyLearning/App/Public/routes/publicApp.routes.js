@@ -45,6 +45,13 @@
                 templateUrl: "/App/Public/Templates/Letters/lettersDetails.html",
                 title: "Letters",
                 controller: "lettersMainController as ltrCtrl"
+            })
+            .state({
+                name: 'profile',
+                url: '/profile',
+                templateUrl: '/App/Public/Templates/Profile/profileDetails.html',
+                title: 'Letters',
+                controller: "profileController as profCtrl"
             });
     }
 })();

@@ -1,5 +1,5 @@
 ﻿<div class="panel panel-default panelPage inner-body">
-    <div class="row" ng-if="pmCtrl.login">
+    <div class="row" ng-if="!pmCtrl.login">
         <div class="mainPanel col-xs-12 col-md-2 text-center" ui-sref="letters">
             <h1>Letters</h1>
         </div>
@@ -14,7 +14,7 @@
             <h1>Pictures</h1>
         </div>
     </div>
-    <div id="landingPage" ng-if="!pmCtrl.login">
+    <div id="landingPage" ng-if="pmCtrl.login">
         <div class="container loginDiv">
             <div class="buttonTable col-xs-8">
                 <span class="landingButtons">
@@ -25,7 +25,7 @@
             <div class="forms col-xs-4">
                 <div class="col-md-10 col-md-offset-2">
                     <div class="registerWrapper" ng-show="pmCtrl.registerFormShow">
-                        <form id="registerForm" class="" name="regForm" ng-submit="pmCtrl.submitForm(regForm.$valid)" novalidate>
+                        <form id="registerForm" class="" name="regForm" ng-submit="pmCtrl.register(regForm.$valid)" novalidate>
                             <h3 class="text-left">Create new account</h3>
                             <fieldset>
                                 <section>
@@ -91,8 +91,8 @@
                                     </div>
                                 </section>
                             </fieldset>
-                            <footer class="text-right">
-                                <button type="submit" class="btn btn-lg btn-skin button1" ng-disabled="loginForm.$invalid">Log in</button>
+                            <footer class="text-right">  <!--   ng-disabled="loginForm.$invalid" -->
+                                <button type="button" class="btn btn-lg btn-skin button1" ng-click="pmCtrl.truthy();">Log in</button>
                             </footer>
                         </form>
                     </div>

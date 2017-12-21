@@ -61,7 +61,7 @@
         }
 
         function error(err) {
-            return $q.Reject(err);
+            return $q.reject(err);
         }
     }
 })();

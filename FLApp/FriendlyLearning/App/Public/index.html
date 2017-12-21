@@ -10,7 +10,8 @@
 </head>
 <body>
     <nav class="navbar navbar-light bg-primary" id="navBar">
-        <h1 class="navbar-brand pull-right"><a ui-sref="home" class="brandName">Friendly Learning</a></h1>
+        <h1 class="profileLink col-xs-4"><a ui-sref="profile">Profile</a></h1>
+        <h1 class="navbar-brand pull-right"><a ui-sref="home" class="brandName" ng-click="">Friendly Learning</a></h1>
     </nav>
     <div class="container-fluid col-xs-12 body-content">
         <div ui-view>
@@ -33,5 +34,7 @@
     <script src="/Scripts/AngularCode/Public/Services/Colors/colorsMain.service.js"></script>
     <script src="/Scripts/AngularCode/Public/Controllers/Numbers/numbersMain.controller.js"></script>
     <script src="/Scripts/AngularCode/Public/Services/Numbers/numbersMain.service.js"></script>
+    <script src="/Scripts/AngularCode/Public/Controllers/Profile/profile.controller.js"></script>
+    <script src="/Scripts/AngularCode/Public/Services/Profile/profile.service.js"></script>
 </body>
 </html>

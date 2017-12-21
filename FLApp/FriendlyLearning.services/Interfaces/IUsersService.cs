@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using FriendlyLearning.Models.cs.Domain;
 using System.Data.SqlClient;
+using FriendlyLearning.Models.cs.ViewModels;
 
 namespace FriendlyLearning.Services.Interfaces
 {
@@ -8,7 +9,7 @@ namespace FriendlyLearning.Services.Interfaces
     {
         Users SelectById(int id);
         List<Users> SelectAll();
-        int Insert(Users model);
+        int Insert(NewUser model);
         void Update(Users model);
         void Delete(int id);
     }

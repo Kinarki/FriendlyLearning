@@ -1,8 +1,20 @@
 ﻿<div class="panel panel-default">
     <div class="container imageTable col-xs-12">
-        <div  ng-repeat="img in scrapeCtrl.imgList" class="col-sm-3 animalImg">
-            <h4 class="col-xs-8">{{ img.animalName }}</h4>
-            <img src="https://a-z-animals.com{{ img.src }}"/>
+        <div  ng-repeat="img in scrapeCtrl.imgList" class="col-sm-3 animalImg" style="width: 30rem">
+            <div class="card">
+                <img src="https://a-z-animals.com{{ img.src }}" class="card-img-top imageSize" />
+                <div class="card-body">
+                    <h4 class="card-title">
+                        {{ img.animalName }}
+                    </h4>
+                    <div class="card-text">
+                        <p class="space">
+
+
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -14,10 +14,13 @@
     padding-right: 15px;
 }
 
+.profileDiv {
+    width: 100%;
+    height: 80%;
+}
+
 /*
-
     Landing Page Styles
-
 */
 
 #landingPage {
@@ -96,15 +99,11 @@
 }
 
 /*
-
     End Landing Page Styles
-
 */
 
 /*
-
     Main Page Styles
-
 */
 
 .mainPanel {
@@ -125,16 +124,11 @@
 }
 
 /*
-
     End Main Page Styles
-
 */
 
-
 /*
-
     Navbar styles
-
 */
 
 .navbar-brand {
@@ -158,39 +152,41 @@
 }
 
 /*
-
     End Navbar Styles
-
 */
 
 /*
-
     Picture Styles
-
 */
 
-.imageTable {
-    display: table;
+/*.imageTable {
     overflow-y: scroll;
-}
+}*/
 
 .animalImg {
-    display: table-cell;
-    word-wrap: normal;
+    vertical-align: middle;
     border: 1px solid black;
-    padding: 5px;
+}
+
+.imageTable .animalImg {
+    padding: 0px;
+}
+
+.imageSize {
+    width: 300px;
+    height: 300px;
+}
+
+.space {
+    white-space: pre-wrap;
 }
 
 /*
-
     End Picture Styles
-
 */
 
 /*
-
     Letters Styles
-
 */
 .lettersContainer {
     width: 100%;
@@ -222,40 +218,34 @@
 }
 
 /*
-
     End Letters Styles
-
 */
 
 /*
-
     Colors Styles
-
 */
 
 .colorWrapper {
     height: 30vh;
     padding: 20px;
 }
-
+ 
 .colorDiv {
     height: 23vh;
     font-size: 6em;
     text-align: center;
     border-radius: 15px;
     padding-top: 50px;
+    color: white;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 /*
-
     End Colors Styles
-
 */
 
 /*
-
     Numbers Styles
-
 */
 
 .numbersContainer {
@@ -270,7 +260,21 @@
 }
 
 /*
-
     End Number Styles
+*/
 
+/*
+    Profile Styles
+*/
+
+.profileLink {
+    margin-left: 3vw;
+}
+
+.profileLink a {
+    color: white;
+}
+
+/*
+    End ProfileStyles
 */

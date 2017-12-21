@@ -43,6 +43,7 @@
     <Compile Include="Domain\AnimalModel.cs" />
     <Compile Include="Domain\AnimalModels.cs" />
     <Compile Include="Domain\Letters.cs" />
+    <Compile Include="ViewModels\NewUser.cs" />
     <Compile Include="Domain\NumbersModel.cs" />
     <Compile Include="Domain\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,8 +53,6 @@
     <Compile Include="Responses\ItemsResponse.cs" />
     <Compile Include="Responses\SuccessResponse.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

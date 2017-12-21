@@ -28,6 +28,7 @@
         }
 
         function _scrapeSuccess(resp) {
+            console.log(resp.data.item.info);
             vm.imgList = resp.data.item.info;
             vm.imgList.splice(0, 3);
         }
